@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Rizz</title>
+
+    <style>
+      html {
+        font-family: sans-serif;
+      }
+
+      body {
+        width: 50%;
+        max-width: 800px;
+        min-width: 480px;
+        margin: 0 auto;
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <h1>Get your rizz</h1>
+
+    <div class="form">
+        <label for="name">Enter a name: </label>
+        <input type="text" min="1" max="50" required id="name" class="name">
+        <input type="submit" value="Submit name" class="nameSubmit">
+    </div>
+
+    <div class="userResult"></div>
+
+    <script>
+        const name = document.querySelector('.name');
+        const nameSubmit = document.querySelector('.nameSubmit');
+        const userResult = document.querySelector('.userResult');
+
+        function nameCheck() {
+            let randomNumber = Math.floor(Math.random() * 100) + 1;
+            const userName = name.value.trim();
+            const excludedName = 'plop';
+            if (userName.toLowerCase() === excludedName) {
+                userResult.textContent = 'Plop you have no rizz';
+            } else if (userName) {
+                userResult.textContent = `${userName}`+ " you have " + `${randomNumber}` + " rizz!";
+            }
+        }
+
+        nameSubmit.addEventListener('click', nameCheck);
+    </script>
+  </body>
+</html>
